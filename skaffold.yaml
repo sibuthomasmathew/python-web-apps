@@ -1,0 +1,17 @@
+apiVersion: skaffold/v4beta2
+kind: Config
+metadata:
+  name: adjust
+build:
+  tagPolicy:
+    envTemplate:
+      template: "{{.VERSION}}"
+  artifacts:
+  - image: simple-app
+    context: applications
+    docker:
+      dockerfile: Dockerfile
+manifests:
+  kustomize:
+    paths:
+    - k8s_manifest
