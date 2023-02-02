@@ -3,9 +3,6 @@ kind: Config
 metadata:
   name: adjust
 build:
-  tagPolicy:
-    envTemplate:
-      template: "{{.VERSION}}"
   artifacts:
   - image: simple-app
     context: applications
@@ -14,4 +11,5 @@ build:
 manifests:
   kustomize:
     paths:
-    - k8s_manifest
+    - k8s_manifest/web
+    - k8s_manifest/monitoring
