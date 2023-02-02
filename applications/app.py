@@ -28,5 +28,12 @@ def hostname():
     return html_rendering(socket.gethostname())
 
 
+@app.route('/health')
+def health_check():
+    """Function to respond to health check probes"""
+
+    return "OK"
+
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
